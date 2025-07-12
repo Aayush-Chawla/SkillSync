@@ -1,42 +1,91 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Custom styles for the SkillSwap platform */
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-@keyframes logo-spin {
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Focus styles for accessibility */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Animation for modal backdrop */
+.modal-backdrop {
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* Card hover effects */
+.user-card {
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.user-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Skill tag animations */
+.skill-tag {
+  transition: transform 0.1s ease-out;
+}
+
+.skill-tag:hover {
+  transform: scale(1.05);
+}
+
+/* Loading states */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
   }
 }
 
-.card {
-  padding: 2em;
+@media (min-width: 641px) and (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.read-the-docs {
-  color: #888;
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
 }
